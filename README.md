@@ -5,7 +5,7 @@ This repository contains code for a comprehensive comparison between two approac
 1. **Empirical Equivalent-Circuit Model**  
 2. **Data-Driven ANN Model**
 
-The data-driven model is trained and validated on measured S-parameter datasets under two distinct biasing conditions, and their performance is evaluated in terms of accuracy, extrapolation capability, and inference speed.
+The data-driven model is trained and validated on measured S-parameter datasets under two distinct biasing conditions, and it's performance is evaluated in terms of accuracy, extrapolation capability, and inference speed.
 
 ---
 

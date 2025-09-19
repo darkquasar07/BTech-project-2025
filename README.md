@@ -29,3 +29,9 @@ The data-driven model is trained and validated on measured S-parameter datasets 
   MRE, MAE, and MSE on held-out test sets.
 
 ---
+
+## Presentation Slides
+
+For an in-depth explanation of the comparison between the models, you can view the [presentation slides](https://docs.google.com/presentation/d/1vKBxRE1CylVAVID47izvgHdPglnwMoB9/edit?usp=sharing&ouid=118144874193472748511&rtpof=true&sd=true)
+
+---

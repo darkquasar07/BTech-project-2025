@@ -20,7 +20,7 @@ This repository contains data preprocessing, model training/evaluation code, plo
 ## Features
 
 * **Dual‑track comparison:**
-  Side-by-side empirical RLC circuit extraction and ANN surrogates for RF S‑parameters and DC drain current (Id) curves.
+  Side-by-side empirical RLC circuit extraction and Artificial Neural Network (ANN) surrogates for RF S‑parameters and DC drain current (Id) curves.
 * **Clean preprocessing pipeline:**
   Outlier filtering, noise‑floor trimming, and persistent input/output scalers for deterministic inference.
 * **Second‑order feature expansion:**

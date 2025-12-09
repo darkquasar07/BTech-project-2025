@@ -1,32 +1,28 @@
-# GaN-on-Si HEMT Small-Signal Characterization: Empirical vs. Data-Driven Models
+# GaN-on-Si HEMT — Small‑Signal Characterization (Empirical vs Data‑Driven)
 
-## Overview  
-This repository contains code for a comprehensive comparison between two approaches to small-signal modeling of GaN-on-Si high-electron-mobility transistors (HEMTs):  
-1. **Empirical Equivalent-Circuit Model**  
-2. **Data-Driven ANN Model**
+## Overview
 
-The data-driven model is trained and validated on measured S-parameter datasets under two distinct biasing conditions, and it's performance is evaluated in terms of accuracy, extrapolation capability, and inference speed.
+This project delivers a rigorous, reproducible comparison between two complementary approaches for small‑signal modeling of GaN‑on‑Si HEMTs:
+
+* **Empirical equivalent‑circuit modeling**, parameterized RLC networks fitted to measured S‑parameters, providing physical insight and circuit‑level interpretability.
+* **Data‑driven modeling**, feature‑engineered feedforward ANNs that directly predict the real and imaginary parts of S‑parameters across frequency and bias.
+
+We trained both approaches on high‑quality experimental datasets under two bias regimes (1) **Vd = 10 V, Vg sweep**, and (2) **Vg = −4 V, Vd sweep**. A parallel DC track (Id–Vg and Id–Vd) was also developed and compared. The ANN models consistently improved prediction accuracy (up to **~50% MRE reduction** on key metrics such as Re(S21)), reduced inference latency to **<0.1 s/sample**, and generalized better to unseen bias points, while empirical models retained interpretability and physics guarantees.
+
+This repository contains data preprocessing, model training/evaluation code, plotting tools (Smith charts, |S| dB plots, three‑way experimental/ANN/empirical comparisons), and scripts to reproduce DC surrogate predictions and circuit simulations (Keysight ADS / Verilog‑A integration).
 
 ---
 
 ## Features
 
-- **Polynomial Feature Expansion**  
-  Generate second-order combinations of (frequency, V<sub>GS</sub>, V<sub>DS</sub>) as network inputs.
-
-- **Dual-Output ANN**  
-  Simultaneously predicts real & imaginary components for all S-parameters.
-
-- **High Accuracy & Speed**  
-  - Up to 50 % reduction in mean relative error (MRE) compared to empirical models.  
-  - Inference in under 0.1 s per sample.
-
-- **Biasing Datasets**  
-  1. Fixed V<sub>D</sub>=10 V, varying V<sub>G</sub>  
-  2. Fixed V<sub>G</sub>=–4 V, varying V<sub>D</sub>
-
-- **Evaluation Metrics**  
-  MRE, MAE, and MSE on held-out test sets.
+* **Dual‑track comparison:** Side-by-side empirical resistor‑inductor‑capacitor circuit extraction and artificial neural network surrogates for radio‑frequency S‑parameters and direct‑current drain current (Id) curves.
+* **Clean preprocessing pipeline:** Outlier filtering, noise‑floor trimming, conversion of complex S‑parameters into separate real and imaginary components, and persistent input/output scalers for deterministic inference.
+* **Second‑order feature expansion:** Automatic polynomial feature generation including squared terms and pairwise cross‑terms of frequency, gate‑source voltage, and drain‑source voltage to expose nonlinear interactions.
+* **Compact, robust neural network:** Four hidden layers with neuron counts 64–128–128–64, Swish activation functions, dropout regularization, Huber loss, and Adam optimizer with learning‑rate scheduling, tuned to generalize across bias conditions.
+* **Complex‑valued targets (dual output):** Networks predict the real and imaginary components simultaneously for each S‑parameter, enabling direct comparison with circuit models and loss evaluation in complex space.
+* **Direct‑current surrogate tooling:** Matrix‑aware functions for drain‑current versus gate‑voltage and drain‑current versus drain‑voltage prediction that parse experimental CSV layouts and generate publication‑quality plots on demand.
+* **Reproducible benchmarking:** Scripts to compute mean relative error, mean absolute error, mean squared error, and runtime comparisons between the neural surrogate and the empirical extraction method; model weights, scalers, and fitted circuit parameters are exportable.
+* **Simulation‑ready outputs:** Fitted circuit parameter files and comparison figures prepared for use in Keysight Advanced Design System and Verilog‑A simulation environments.
 
 ---
 

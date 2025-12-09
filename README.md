@@ -1,8 +1,8 @@
-# GaN HEMT — Small‑Signal Characterization (Empirical vs Data‑Driven)
+# GaN HEMTs — Small‑Signal Characterization (Empirical vs Data‑Driven)
 
 ## Overview
 
-This project delivers a rigorous, reproducible comparison between two complementary approaches for small‑signal modeling of GaN‑on‑Si HEMTs:
+This project delivers a rigorous, comparison between two complementary approaches for small‑signal modeling of GaN HEMTs:
 
 * **Empirical equivalent‑circuit modeling**, parameterized RLC networks fitted to measured S‑parameters, providing physical insight and circuit‑level interpretability.
 * **Data‑driven modeling**, feature‑engineered feedforward ANNs that directly predict the real and imaginary parts of S‑parameters across frequency and bias.

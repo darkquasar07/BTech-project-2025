@@ -1,4 +1,4 @@
-# GaN HEMTs — Small‑Signal Characterization (Empirical vs Data‑Driven)
+# GaN HEMTs : Small‑Signal Characterization (Empirical vs Data‑Driven)
 
 ## Overview
 
